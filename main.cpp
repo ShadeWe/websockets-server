@@ -65,6 +65,7 @@ int main(int argc, char **argv)
     SOCKET newConnection = accept(s, (SOCKADDR*)&socketAddress, &socketSize);
     
     char buf[1024];
+    char databuf[512];
 
     if (newConnection == 0 ) {
         cout << "error occured";
@@ -83,6 +84,37 @@ int main(int argc, char **argv)
         string headers = "HTTP/1.1 101 Web Socket Protocol Handshake\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: "+encodedData+"\r\n\r\n";
         send(newConnection, reinterpret_cast<const char*>(headers.c_str()), headers.size(), 0);
         
+        while (true) {
+            if (recv(newConnection, databuf, sizeof(databuf), 0)) {
+                
+                char first_byte = databuf[0];
+                char second_byte = databuf[1];
+                char body_length = second_byte & 0b01111111;
+                
+                char mask_key[4] = {
+                    databuf[2],
+                    databuf[3],
+                    databuf[4],
+                    databuf[5]
+                };
+                
+                char data_received[128];
+                
+                for (int i = 0; i < (int)body_length; i++) {
+                    data_received[i] = databuf[6 + i];
+                }
+                
+                char data_decoded[(int)body_length];
+                for (int i = 0; i < (int)body_length; i++) {
+                    data_decoded[i] = data_received[i] ^ mask_key[i % 4];
+                }
+                
+                string decoded_String;
+                decoded_String = data_decoded;
+                
+                cout << decoded_String;
+            }
+        }
     }
     
     system("pause");

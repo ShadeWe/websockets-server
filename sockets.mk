@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/sha.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/md5.cpp$(ObjectSuffix) $(IntermediateDirectory)/base64.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/base64.cpp$(ObjectSuffix) $(IntermediateDirectory)/sha.cpp$(ObjectSuffix) 
 
 
 
@@ -93,14 +93,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/sha.cpp$(ObjectSuffix): sha.cpp $(IntermediateDirectory)/sha.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Shade/Documents/darov/sockets/sha.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/sha.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/sha.cpp$(DependSuffix): sha.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/sha.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/sha.cpp$(DependSuffix) -MM sha.cpp
-
-$(IntermediateDirectory)/sha.cpp$(PreprocessSuffix): sha.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/sha.cpp$(PreprocessSuffix) sha.cpp
-
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Shade/Documents/darov/sockets/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
@@ -109,14 +101,6 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
 
-$(IntermediateDirectory)/md5.cpp$(ObjectSuffix): md5.cpp $(IntermediateDirectory)/md5.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Shade/Documents/darov/sockets/md5.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/md5.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/md5.cpp$(DependSuffix): md5.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/md5.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/md5.cpp$(DependSuffix) -MM md5.cpp
-
-$(IntermediateDirectory)/md5.cpp$(PreprocessSuffix): md5.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/md5.cpp$(PreprocessSuffix) md5.cpp
-
 $(IntermediateDirectory)/base64.cpp$(ObjectSuffix): base64.cpp $(IntermediateDirectory)/base64.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Shade/Documents/darov/sockets/base64.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/base64.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/base64.cpp$(DependSuffix): base64.cpp
@@ -124,6 +108,14 @@ $(IntermediateDirectory)/base64.cpp$(DependSuffix): base64.cpp
 
 $(IntermediateDirectory)/base64.cpp$(PreprocessSuffix): base64.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/base64.cpp$(PreprocessSuffix) base64.cpp
+
+$(IntermediateDirectory)/sha.cpp$(ObjectSuffix): sha.cpp $(IntermediateDirectory)/sha.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Shade/Documents/darov/sockets/sha.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/sha.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/sha.cpp$(DependSuffix): sha.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/sha.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/sha.cpp$(DependSuffix) -MM sha.cpp
+
+$(IntermediateDirectory)/sha.cpp$(PreprocessSuffix): sha.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/sha.cpp$(PreprocessSuffix) sha.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

@@ -10,8 +10,6 @@
   <VirtualDirectory Name="src">
     <File Name="sha.h"/>
     <File Name="sha.cpp"/>
-    <File Name="md5.h"/>
-    <File Name="md5.cpp"/>
     <File Name="base64.h"/>
     <File Name="base64.cpp"/>
     <File Name="main.cpp"/>
