@@ -12,13 +12,23 @@ string getWebSocketKey(char * buffer) {
         
     string key;
     
-    for (int i = 0; i < 43; i++) {
+    for (int i = 0; i < 24; i++) {
         key = key + buf[buf.find("Sec-WebSocket-Key") + 19 + i];
     }
     
     return key;
 }
 
+string processHandshake(string & binary_data, string sha) {
+    char test[2];
+    
+    for (int i = 0; i < 40; i = i + 2) {
+        test[0] = sha[i];
+        test[1] = sha[i + 1];
+        binary_data.push_back((char)strtoul(test, 0, 16));
+    }
+    
+}
 
 int main(int argc, char **argv)
 {
@@ -63,13 +73,14 @@ int main(int argc, char **argv)
         cout << "someone has connected to the server, handshaking..." << endl;
         recv(newConnection, buf, sizeof(buf), 0);
         
-        string key = getWebSocketKey(buf);
-        string sha = sha1(key + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
-        string encodedData = base64_encode(reinterpret_cast<const unsigned char*>(sha.c_str()), sha.size());
+        string sha = sha1(getWebSocketKey(buf) + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
+        
+        string binary_data;
+        processHandshake(binary_data, sha);
+        
+        string encodedData = base64_encode(reinterpret_cast<const unsigned char*>(binary_data.c_str()), binary_data.size());
         
         string headers = "HTTP/1.1 101 Web Socket Protocol Handshake\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: "+encodedData+"\r\n\r\n";
-        
-        cout << headers << endl;
         send(newConnection, reinterpret_cast<const char*>(headers.c_str()), headers.size(), 0);
         
     }

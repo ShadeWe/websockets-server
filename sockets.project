@@ -8,8 +8,10 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="sha.cpp"/>
     <File Name="sha.h"/>
+    <File Name="sha.cpp"/>
+    <File Name="md5.h"/>
+    <File Name="md5.cpp"/>
     <File Name="base64.h"/>
     <File Name="base64.cpp"/>
     <File Name="main.cpp"/>
@@ -26,7 +28,7 @@
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="MinGW ( TDM-GCC-64 )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="C:\cryptopp565"/>
+        <IncludePath Value="C:\cryptopp565\"/>
       </Compiler>
       <Linker Options="" Required="yes">
         <LibraryPath Value="C:\cryptopp565"/>
@@ -107,4 +109,6 @@
       </Completion>
     </Configuration>
   </Settings>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
