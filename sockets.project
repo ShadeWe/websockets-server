@@ -8,12 +8,18 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="Server.cpp"/>
+    <File Name="Server.h"/>
+    <File Name="Client.cpp"/>
+    <File Name="Client.h"/>
     <File Name="sha.h"/>
     <File Name="sha.cpp"/>
     <File Name="base64.h"/>
     <File Name="base64.cpp"/>
     <File Name="main.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -26,11 +32,17 @@
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="MinGW ( TDM-GCC-64 )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="C:\cryptopp565\"/>
+        <IncludePath Value="C:\SFML-2.4.2\include"/>
+        <Preprocessor Value="SFML_STATIC"/>
       </Compiler>
       <Linker Options="" Required="yes">
-        <LibraryPath Value="C:\cryptopp565"/>
+        <LibraryPath Value="C:\SFML-2.4.2\lib"/>
         <Library Value="ws2_32"/>
+        <Library Value="sfml-graphics"/>
+        <Library Value="sfml-window"/>
+        <Library Value="sfml-audio"/>
+        <Library Value="sfml-network"/>
+        <Library Value="sfml-system"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
@@ -107,6 +119,4 @@
       </Completion>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug"/>
-  <Dependencies Name="Release"/>
 </CodeLite_Project>

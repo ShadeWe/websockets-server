@@ -1,1 +1,1 @@
-./Debug/main.cpp.o ./Debug/base64.cpp.o ./Debug/sha.cpp.o   
+./Debug/main.cpp.o ./Debug/Client.cpp.o ./Debug/Server.cpp.o ./Debug/base64.cpp.o ./Debug/sha.cpp.o   
