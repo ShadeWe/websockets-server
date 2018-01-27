@@ -7,6 +7,7 @@ class Client
 {
 public:
     
+    int id;
     bool pending = false;
     SOCKET socket;
     

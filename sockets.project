@@ -8,14 +8,18 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="Server.cpp"/>
-    <File Name="Server.h"/>
-    <File Name="Client.cpp"/>
-    <File Name="Client.h"/>
-    <File Name="sha.h"/>
-    <File Name="sha.cpp"/>
-    <File Name="base64.h"/>
-    <File Name="base64.cpp"/>
+    <VirtualDirectory Name="encoding">
+      <File Name="sha.h"/>
+      <File Name="sha.cpp"/>
+      <File Name="base64.h"/>
+      <File Name="base64.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="classes">
+      <File Name="Server.h"/>
+      <File Name="Server.cpp"/>
+      <File Name="Client.h"/>
+      <File Name="Client.cpp"/>
+    </VirtualDirectory>
     <File Name="main.cpp"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>

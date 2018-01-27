@@ -28,7 +28,7 @@ Server::Server()
         cout << "an error occured" << endl;
     }
     
-    // binding an address to our socket with a port, inet_addr, protocol set.
+    // binding the address to our socket with a port, inet_addr, protocol set.
     bind(this->serverSocket, (SOCKADDR*)&this->socketAddress, this->socketSize);
     
     
@@ -48,10 +48,18 @@ void Server::HandlingConnection() {
 
             client.pending = false;
             client.socket = socket;
+            client.id = this->counter;
+            
+            this->counter++;
             
             this->clients.push_back(client);
             
-            cout << "one more client" << endl;
+            if (this->clients.size() != 0) {
+                this->pendingClients = true;
+            } else {
+                this->pendingClients = false;
+            }
+        
         }
     }
 }

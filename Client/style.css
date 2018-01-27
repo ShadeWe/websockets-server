@@ -1,0 +1,89 @@
+html, body {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+#button {
+  user-select: none;
+  -moz-user-select: none;
+  
+  line-height: 50px;
+  font-family: Arial;
+  font-size: 12px;
+  position: absolute;
+  top: 11px;
+  margin-bottom: -40px;
+  margin-left: 50px;
+  height: 50px;
+  width: 80px;
+  background-color: #61abc6;
+}
+#button:hover {
+  background-color: #5ea7c1;
+}
+#button:active {
+  background-color: #4e8ca3;
+}
+
+
+
+#text_area {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  margin-right: -200px;
+  margin-top: -40px;;
+  display: inline-block;
+  height: 45px;
+  width: 350px;
+  overflow: hidden;
+  resize: none;
+}
+#container {
+  user-select: none;
+  background-color: lightblue;
+  position: absolute;
+  top: 70%;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+}
+#header {
+  user-select: none;
+  -moz-user-select: none;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 300px;
+  height: 100px;
+}
+
+#main-word {
+  font-family: Arial;
+  font-size: 20px;
+}
+
+#second-word {
+  font-family: Arial;
+  font-size: 12px;
+}
+
+#console-box {
+  user-select: none;
+  -moz-user-select: none;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+
+.console-text {
+  font-family: Arial;
+  font-size: 12px;
+}
+
+#wrap {
+  display: inline-block;
+  width: 600px;
+  background-color: yellow;
+}
