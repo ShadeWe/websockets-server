@@ -7,7 +7,7 @@ p {
 #button {
   user-select: none;
   -moz-user-select: none;
-  
+
   line-height: 50px;
   font-family: Arial;
   font-size: 12px;
@@ -32,11 +32,11 @@ p {
   position: absolute;
   top: 50%;
   right: 50%;
-  margin-right: -200px;
+  margin-right: -230px;
   margin-top: -40px;;
   display: inline-block;
   height: 45px;
-  width: 350px;
+  width: 380px;
   overflow: hidden;
   resize: none;
 }
@@ -86,4 +86,82 @@ p {
   display: inline-block;
   width: 600px;
   background-color: yellow;
+}
+
+#dialog-box {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  margin-left: -300px;
+  border: 1px solid black;
+  width: 600px;
+  height: 370px;
+}
+
+.message {
+  margin-left: 17px;
+  width: 550px;
+  min-height: 37px;
+}
+
+
+/* this name box is seen only by the client who've sent a message (just to get a client to see its message on the dialog box) */
+.client-name-from-client {
+
+  color: rgb(232, 58, 213);
+  padding-top: 5px;
+  padding-left: 10px;
+  font-family: Arial;
+  font-size: 13px;
+  line-height: 24px;
+  width: 540px;
+  height: 25px;
+
+}
+
+/* this name box is seen when getting a message from the server (from another client) */
+.client-name-from-server {
+
+  color: rgb(63, 46, 255);
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 10px;
+  font-family: Arial;
+  font-size: 13px;
+  line-height: 24px;
+  width: 540px;
+  height: 25px;
+
+}
+
+.message-box {
+  font-family: Arial;
+  font-size: 13px;
+  width: 550px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(208, 162, 255);
+}
+
+#connect-button {
+  position: absolute;
+  background-color: rgb(255, 223, 253);
+  right: 20px;
+  bottom: 20px;
+  width: 120px;
+  height: 25px;
+}
+/* DEBUG */
+#debug {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+#debug2 {
+  position: absolute;
+  right: 50px;
+  width: 50px;
+  height: 50px;
 }

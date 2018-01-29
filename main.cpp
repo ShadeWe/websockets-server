@@ -104,8 +104,23 @@ int main(int argc, char **argv)
                             printf("the %d client says: %s\n", server.clients[i].id, data_decoded);
                             
                             
+                            
+                            // ECHO
+                            char data[(int)body_length + 2];
+                            data[0] = 0b10000001;
+                            data[1] = (char)body_length;
+                            
+                            for (int i = 0; i < (int)body_length; i++) {
+                                data[i + 2] = data_decoded[i];
+                            }
+                            
+                            send(server.clients[i].socket, data, sizeof(data), 0);
+                            // ECHO
+                            
+                            
                             // unsetting memory
                             memset(databuf, 0, 512);
+                            memset(data, 0, 5);
                             memset(data_received, 0, 128);
                             memset(data_decoded, 0, (int)body_length);
                             
