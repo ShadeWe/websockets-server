@@ -1,5 +1,6 @@
 #include "Server.h"
 #include <winsock2.h>
+#include <SFML/System.hpp>
 #include <iostream>
 #include <vector>
 
@@ -34,32 +35,43 @@ Server::Server()
     
 }
 
+void Server::messageBack() {
+    
+}
+
 
 void Server::HandlingConnection() {
-    
-    //SOCKET newConnection = accept(serverSocket, (SOCKADDR*)&this->socketAddress, &this->socketSize); 
     
     while (true) {
         
         SOCKET socket = accept(this->serverSocket, (SOCKADDR*)&this->socketAddress, &this->socketSize);
         
+        // there has been a connection
         if (socket != INVALID_SOCKET) {
+            
+            printf("new client\n");
+            
+            // creating an object for our client
             Client client;
-
             client.pending = false;
             client.socket = socket;
             client.id = this->counter;
             
             this->counter++;
             
+            // add our new client to the vector of clients
             this->clients.push_back(client);
             
+            // if there's at least one client, set true to the pendingClients.
             if (this->clients.size() != 0) {
                 this->pendingClients = true;
             } else {
                 this->pendingClients = false;
             }
-        
+            
+            
         }
+        sf::sleep(sf::milliseconds(10));
     }
 }
+

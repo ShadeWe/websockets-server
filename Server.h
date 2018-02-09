@@ -29,6 +29,7 @@ public:
     
     // accepts connections to the server socket, pushes clients to the vector with clients. 
     void HandlingConnection();
+    void messageBack();
     
     // constructor.
     Server();

@@ -13,10 +13,10 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Shade
-Date                   :=29/01/2018
+Date                   :=09/02/2018
 CodeLitePath           :="C:/Program Files/CodeLite"
-LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
-SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
+LinkerName             :=C:/MinGW/bin/g++.exe
+SharedObjectLinkerName :=C:/MinGW/bin/g++.exe -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.i
@@ -36,26 +36,26 @@ ObjectsFileList        :="sockets.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := 
-RcCompilerName         :=C:/TDM-GCC-64/bin/windres.exe
+RcCompilerName         :=C:/MinGW/bin/windres.exe
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)C:\SFML-2.4.2\include 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)C:\MinGW\include $(IncludeSwitch)C:\SFML-2.4.2\include 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)ws2_32 $(LibrarySwitch)sfml-graphics $(LibrarySwitch)sfml-window $(LibrarySwitch)sfml-audio $(LibrarySwitch)sfml-network $(LibrarySwitch)sfml-system 
-ArLibs                 :=  "ws2_32" "sfml-graphics" "sfml-window" "sfml-audio" "sfml-network" "sfml-system" 
-LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)C:\SFML-2.4.2\lib 
+Libs                   := $(LibrarySwitch)ws2_32 $(LibrarySwitch)sfml-system 
+ArLibs                 :=  "ws2_32" "sfml-system" 
+LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)C:\SFML-2.4.2\lib $(LibraryPathSwitch)C:\MinGW\include 
 
 ##
 ## Common variables
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
-AR       := C:/TDM-GCC-64/bin/ar.exe rcu
-CXX      := C:/TDM-GCC-64/bin/g++.exe
-CC       := C:/TDM-GCC-64/bin/gcc.exe
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+AR       := C:/MinGW/bin/ar.exe rcu
+CXX      := C:/MinGW/bin/g++.exe
+CC       := C:/MinGW/bin/gcc.exe
+CXXFLAGS :=   $(Preprocessors)
+CFLAGS   :=   $(Preprocessors)
 ASFLAGS  := 
-AS       := C:/TDM-GCC-64/bin/as.exe
+AS       := C:/MinGW/bin/as.exe
 
 
 ##
